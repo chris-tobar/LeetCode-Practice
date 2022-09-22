@@ -4,18 +4,20 @@ class problem985{
     
     public static void main(String[] args) {
         
+        //Solution: [8,6,2,4]
         int[] nums1 = {1,2,3,4};
         int[][] queries1 = {{1,0},
                             {-3,1},
                             {-4,0},
                             {2,3}};
 
+        //Solution: [0]
         int[] nums2 = {1};
         int[][] queries2 = {{4,0}};
 
         print( sumEvenAfterQueries(nums1, queries1));
         print( sumEvenAfterQueries(nums2, queries2));
-             
+
     }
 
     public static void print(int[] solution)
