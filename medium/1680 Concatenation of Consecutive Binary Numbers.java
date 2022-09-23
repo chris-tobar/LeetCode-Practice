@@ -27,24 +27,15 @@ class problem1680{
 
     public static int concatenatedBinary(int n) {
         
-        //StringBuilder where we will concatenate the binary string representations
-        StringBuilder binary = new StringBuilder();
+        long sum = 0;
         
-        //Loop through the numbers starting from 1 to n
         for(int i=1; i<=n; i++)
         {
-            //convert int to binary representation and conc that to the string builder
-            binary.append( Integer.toBinaryString(i) );
+            String binary = Integer.toBinaryString(i);
+            sum = ( (sum << binary.length()) + i) % 1000000007;
         }
         
-        //Conver the number back into a Integer
-        BigInteger temp = new BigInteger(binary.toString(), 2);
-        BigInteger mod = new BigInteger("1000000007");
-        //Mod it with 10^9+7
-        temp = temp.mod( mod );
-        
-        //Return int value that was found
-        return temp.intValue();
+        return (int) sum;
         
     }
 }
