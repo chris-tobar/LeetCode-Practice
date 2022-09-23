@@ -27,14 +27,20 @@ class problem1680{
 
     public static int concatenatedBinary(int n) {
         
+        //Sum that will store the solution
         long sum = 0;
         
+        //Iterate through the numbers starting from 1 to n
         for(int i=1; i<=n; i++)
         {
+            //Convert number to binary string
             String binary = Integer.toBinaryString(i);
+
+            //Move over bits by size of string, add number to sum, and then take mod of whole number to avoid int overflow
             sum = ( (sum << binary.length()) + i) % 1000000007;
         }
         
+        //Conver long into an int
         return (int) sum;
         
     }
