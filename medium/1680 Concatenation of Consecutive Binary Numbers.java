@@ -1,6 +1,11 @@
 package medium;
 import java.math.BigInteger;
 
+/*
+ * Given an integer n, return the decimal value of 
+ * the binary string formed by concatenating the binary 
+ * representations of 1 to n in order, modulo 109 + 7.
+ */
 class problem1680{
     
     public static void main(String[] args) {
