@@ -5,9 +5,16 @@ class problem990{
     
     public static void main(String[] args) {
         
+        String[] example1 = {"a==b","b!=a"};
+        String[] example2 = {"b==a","a==b"};
+        String[] example3 = {"a==b","b!=c","c==a"};
+
+        System.out.println( equationsPossible(example1));
+        System.out.println( equationsPossible(example2));
+        System.out.println( equationsPossible(example3));
     }
 
-    public boolean equationsPossible(String[] equations) {
+    public static boolean equationsPossible(String[] equations) {
         
         HashSet<String> opposites = new HashSet<>();
         HashSet<Character> eqSet = new HashSet<>();
