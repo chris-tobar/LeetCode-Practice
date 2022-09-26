@@ -5,13 +5,19 @@ class problem990{
     
     public static void main(String[] args) {
         
+        //Solution:false
         String[] example1 = {"a==b","b!=a"};
+
+        //Solution: true
         String[] example2 = {"b==a","a==b"};
+
+        //Solution:false
         String[] example3 = {"a==b","b!=c","c==a"};
 
         System.out.println( equationsPossible(example1));
         System.out.println( equationsPossible(example2));
         System.out.println( equationsPossible(example3));
+
     }
 
     public static boolean equationsPossible(String[] equations) {
