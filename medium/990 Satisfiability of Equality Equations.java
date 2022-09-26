@@ -33,16 +33,24 @@ class problem990{
 
     public static boolean equationsPossible(String[] equations) {
         
+        //Hashset to contain opposite of equations
+        //If the opposite of an equation is detected, then it will always be false
+        //IE if a==b and a!=b is found or b==a and b!=a is found, it will always be false
         HashSet<String> opposites = new HashSet<>();
+
+        //Sets to store the letters the ineq and equal
         HashSet<Character> eqSet = new HashSet<>();
         HashSet<Character> inqSet = new HashSet<>();
         
+        //Loop through the array
         for(int i=0; i<equations.length; i++)
         {
+            //Get the letters of the equations, and the inverse 
             char x = equations[i].charAt(0);
             char y = equations[i].charAt(3);
             char inverse;
             
+            //Add to set, and create the negation
             if(equations[i].charAt(1) == '=')
             {
                 inverse = '!';
@@ -56,16 +64,18 @@ class problem990{
                 inqSet.add(y);
             }
             
+            //Create equation that is the inverse 
             String invEquation1 = "" + x + inverse + "=" + y;
             String invEquation2 = "" + y + inverse + "=" + x;
             
+            //Check to see if the inverse is contained within the set, else add equation checked to set
             if(opposites.contains( invEquation1) || opposites.contains(invEquation2) )
                 return false;
             else
                 opposites.add(equations[i]);
         }
         
-        
+        //Return true
         return true;
     }
 }
