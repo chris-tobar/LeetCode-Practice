@@ -44,6 +44,7 @@ class problem990{
             char x = statement.charAt(0);
             char y = statement.charAt(3);
             if(statement.charAt(1) == '=')
+                //Adjusting it so letter x equals y within the union array
                 union[ find(x-'a',union)] = find(y- 'a',union);
         }
         
@@ -51,10 +52,12 @@ class problem990{
         {
             char x = statement.charAt(0);
             char y = statement.charAt(3);
+            //Contradicting statement found, so return false
             if(statement.charAt(1) == '!' && find(x-'a',union) == find(y-'a',union))
                 return false;
         }
         
+        //No contradictions found, return true
         return true;
     }
     
