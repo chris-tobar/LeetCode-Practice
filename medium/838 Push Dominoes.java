@@ -60,7 +60,7 @@ class problem838{
             //This will tell us how many dots are between the left and right
             int middle = right - left - 1;
 
-            //Since left is not zero, we want to append the left character
+            //Since left no longer is in our padding, we want to append the left character
             if (left > 0)
                 res.append(d.charAt(left));
             
