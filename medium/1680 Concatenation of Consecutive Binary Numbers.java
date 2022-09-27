@@ -1,5 +1,4 @@
 package medium;
-import java.math.BigInteger;
 
 /*
  * Given an integer n, return the decimal value of 
