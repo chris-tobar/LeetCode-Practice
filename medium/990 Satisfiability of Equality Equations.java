@@ -31,20 +31,27 @@ class problem990{
 
     public static boolean equationsPossible(String[] equations) {
         
+        //Integer array that uses the letter as the index, and the value as the letter its equal too
         int[] union = new int[26];
         
+        //Making each letter equal itself
         for(int i=0; i<26; i++)
             union[i] = i;
         
+        //Iterate through finding statements where the left equals the right
         for(String statement: equations)
         {
+            char x = statement.charAt(0);
+            char y = statement.charAt(3);
             if(statement.charAt(1) == '=')
-                union[ find(statement.charAt(0)-'a',union)] = find(statement.charAt(3) - 'a',union);
+                union[ find(x-'a',union)] = find(y- 'a',union);
         }
         
         for(String statement: equations)
         {
-            if(statement.charAt(1) == '!' && find(statement.charAt(0)-'a',union) == find(statement.charAt(3)-'a',union))
+            char x = statement.charAt(0);
+            char y = statement.charAt(3);
+            if(statement.charAt(1) == '!' && find(x-'a',union) == find(y-'a',union))
                 return false;
         }
         
