@@ -42,24 +42,31 @@ class problem838{
 
     public static String pushDominoes(String dominoes) {
 
+        //String builder that will store the previous one, as well as the updated one
         StringBuilder waves = new StringBuilder(dominoes);
         StringBuilder prev = new StringBuilder("");
         
+        //When the previous string matches the current string, that means no new changes were made
         while( !waves.toString().equals( prev.toString() ) )
         {
+            //Set the previous String equal to the current string to keep track of changes
             prev = new StringBuilder(waves);
             
+            //Iterate through the string length
             for(int i=0; i<waves.length(); i++)
             {
+                //If current i=. then we will check to see if the left and right will make it neutral or not
                 if( (i!=0 && i!=waves.length()-1) && prev.charAt(i)=='.' && 
                    prev.charAt(i-1)=='R' && prev.charAt(i+1)=='L')
                 {
                     waves.setCharAt(i,'.');
                 }
+                //It was not neutral so we check if it will be pushed to the right
                 else if(i!=0 && prev.charAt(i)=='.' && prev.charAt(i-1) == 'R')
                 {
                     waves.setCharAt(i,'R');
                 }
+                //Check to see if it will be pushed to the left
                 else if(i!=waves.length()-1 && prev.charAt(i)=='.' && prev.charAt(i+1)=='L')
                 {
                     waves.setCharAt(i,'L');
@@ -68,6 +75,7 @@ class problem838{
 
         }
         
+        //Return the completed string
         return waves.toString();
     }
 }
