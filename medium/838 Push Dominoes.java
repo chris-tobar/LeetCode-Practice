@@ -40,6 +40,8 @@ class problem838{
 
     }
 
+    //Time complexity: O(n)
+    //Space complexity: O(n)
     public static String pushDominoes(String dominoes) {
 
         //Padding left and right to not worry about edge cases
