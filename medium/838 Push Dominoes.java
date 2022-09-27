@@ -4,10 +4,19 @@ class problem838{
 
     public static void main(String[] args)
     {
+        //Solution: "RR.L"
         String example1 = "RR.L";
+
+        //Solution: "LL.RR.LLRRLL.."
         String example2 = ".L.R...LR..L..";
 
-        pushDominoes(example2);
+        //Solution: "LL.RR"
+        String example3 = ".L.R.";
+
+        System.out.println( pushDominoes(example1));
+        System.out.println( pushDominoes(example2));
+        System.out.println( pushDominoes(example3));
+
     }
 
     public static String pushDominoes(String dominoes) {
