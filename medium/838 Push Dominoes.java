@@ -42,29 +42,56 @@ class problem838{
 
     public static String pushDominoes(String dominoes) {
 
+        //Padding left and right to not worry about edge cases
         String d = 'L' + dominoes + 'R';
+
+        //String builder that we will be appending our solution too
         StringBuilder res = new StringBuilder();
-        for (int i = 0, j = 1; j < d.length(); ++j) {
-            if (d.charAt(j) == '.') continue;
-            int middle = j - i - 1;
-            if (i > 0)
-                res.append(d.charAt(i));
-            if (d.charAt(i) == d.charAt(j))
+
+        //Iterate through the string
+        for (int left = 0, right = 1; right < d.length(); right++) {
+
+            //We are only searching for cases where its not a "."
+            if (d.charAt(right) == '.') 
+                continue;
+
+            //This will tell us how many dots are between the left and right
+            int middle = right - left - 1;
+
+            //Since left is not zero, we want to append the left character
+            if (left > 0)
+                res.append(d.charAt(left));
+            
+            //The left character and the right character are the same, so we make all the dots in between
+            // the same letter
+            if (d.charAt(left) == d.charAt(right))
+                //Iterate how many dots were found
                 for (int k = 0; k < middle; k++)
-                    res.append(d.charAt(i));
-            else if (d.charAt(i) == 'L' && d.charAt(j) == 'R')
+                    res.append(d.charAt(left));
+            //left side is "L" and right side is "R", meaning the middle will never be affected by dominoes falling
+            else if (d.charAt(left) == 'L' && d.charAt(right) == 'R')
+                //iterate for how many dots were found
                 for (int k = 0; k < middle; k++)
                     res.append('.');
+            
+            //Dots in the middle are going to be affected by some action, so we need to iterate through and append
             else {
+                //Since left = "R", we iterate through half the dots found and make them "R"
                 for (int k = 0; k < middle / 2; k++)
                     res.append('R');
+                //Since its an odd number of dots, that middle dot will not be affected due to left="R" and right="L"
                 if (middle % 2 == 1)
                     res.append('.');
+                //Append whatever dots are left with "L"
                 for (int k = 0; k < middle / 2; k++)
                     res.append('L');
             }
-            i = j;
+
+            //Make the left pointer equal to the right
+            left = right;
         }
+
+        //Return the completed string
         return res.toString();
     }
 }
