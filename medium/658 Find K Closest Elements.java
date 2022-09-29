@@ -7,6 +7,23 @@ class problem658{
     
     public static void main(String[] args) {
         
+        int[] example1 = {1,2,3,4,5};
+        int[] example2 = {1,1,1,10,10,10};
+
+        printList( findClosestElements(example1, 4, 3));
+        printList( findClosestElements(example1, 4, -1));
+        printList( findClosestElements(example1, 4, 6));
+        printList( findClosestElements(example2, 1, 9));
+
+
+    }
+
+    public static void printList(List<Integer> arr)
+    {
+        for(int i: arr)
+            System.out.print(i + " ");
+
+        System.out.println();
     }
 
     public static List<Integer> findClosestElements(int[] arr, int k, int x) {
