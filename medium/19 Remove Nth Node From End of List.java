@@ -4,8 +4,15 @@ class problem19{
     
     public static void main(String[] args) {
         
-        
+        ListNode example1 = createListNodes( new int[] {1,2,3,4,5} );
+        ListNode example2 = createListNodes(new int[] {1});
+        ListNode example3 = createListNodes(new int[] {1,2});
+
+        example1.printListNode();
+        example2.printListNode();
+        example3.printListNode();
     }
+
 
     public static ListNode createListNodes(int[] list)
     {
@@ -18,7 +25,6 @@ class problem19{
             tail.next = new ListNode();
             tail = tail.next;
         }
-
 
         return head;
     }
