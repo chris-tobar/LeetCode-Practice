@@ -8,11 +8,14 @@ class problem19{
         ListNode example2 = createListNodes(new int[] {1});
         ListNode example3 = createListNodes(new int[] {1,2});
 
-        example1.printListNode();
-        example2.printListNode();
-        example3.printListNode();
-    }
+        ListNode temp1 = removeNthFromEnd(example1, 2);
+        ListNode temp2 = removeNthFromEnd(example2, 1);
+        ListNode temp3 = removeNthFromEnd(example3, 1);
 
+        temp1.printListNode();
+        temp2.printListNode();
+        temp3.printListNode();
+    }
 
     public static ListNode createListNodes(int[] list)
     {
