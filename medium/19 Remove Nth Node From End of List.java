@@ -7,6 +7,22 @@ class problem19{
         
     }
 
+    public static ListNode createListNodes(int[] list)
+    {
+        ListNode head = new ListNode();
+        ListNode tail = head;
+
+        for(int i: list)
+        {
+            tail.val = i;
+            tail.next = new ListNode();
+            tail = tail.next;
+        }
+
+
+        return head;
+    }
+
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         
         int length = 0;
