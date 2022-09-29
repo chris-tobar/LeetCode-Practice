@@ -10,9 +10,16 @@ class problem658{
         int[] example1 = {1,2,3,4,5};
         int[] example2 = {1,1,1,10,10,10};
 
+        //Solution: {1,2,3,4}
         printList( findClosestElements(example1, 4, 3));
+
+        //Solution: {1,2,3,4}
         printList( findClosestElements(example1, 4, -1));
+
+        //Solution: {2,3,4,5}
         printList( findClosestElements(example1, 4, 6));
+
+        //Solution: {10}
         printList( findClosestElements(example2, 1, 9));
 
 
