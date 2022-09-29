@@ -46,13 +46,17 @@ class problem658{
 
     public static List<Integer> findClosestElements(int[] arr, int k, int x) {
         
+        //ArrayList to store the solution
         ArrayList<Integer> sol = new ArrayList<>();
         
+        //Two edges cases
+        // 1. If the first number is greater than x, get 0 to k
         if(arr[0] >= x)
         {
             for(int i=0; i<k; i++)
                 sol.add(arr[i]);
         }
+        // 2. If the last number is less than x, then get length-k to length-1
         else if(arr[ arr.length - 1 ] <= x)
         {
             for(int i=arr.length - k; i<arr.length; i++)
@@ -60,34 +64,42 @@ class problem658{
         }
         else
         {
+            //Use BS to find the pivot point we are going to be manuvering around
             int pivot = BS(arr, x);
             int left = pivot-1;
             int right = pivot+1;
             
+            //Keep searching until we have the size of array searching for
             while(right-left < k)
             {
+                //Calculate the differences now to make reading it easier
                 int leftDiff = Math.abs(arr[left]-x);
                 int rightDiff = Math.abs(arr[right]-x);
                 
+                //Left number is closer and smaller than right
                 if(left >=0 && (leftDiff < rightDiff) || (leftDiff==rightDiff && 
                                                           arr[left]<arr[right]))
                 {
                     left--;
                 }
+                //Right number is smaller and hasn't reached the end
                 else if( right < arr.length)
                 {
                     right++;
                 }
+                //Right number has reached the end, so we can only move the pointer left
                 else
                 {
                     left--;
                 } 
             }
             
+            //Iterate from left pointer to the right to keep the numbers in order
             for(int i = left; i<right; i++)
                 sol.add(arr[i]);
         }
         
+        //Return the solution
         return sol;
     }
     
