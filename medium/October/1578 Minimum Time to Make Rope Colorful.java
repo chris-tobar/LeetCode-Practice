@@ -19,9 +19,21 @@ class problem1578{
     
     public static void main(String[] args) {
         
+        String example1 = "abaac";
+        int[] time1 = {1,2,3,4,5};
+
+        String example2 = "abc";
+        int[] time2 = {1,2,3};
+
+        String example3 = "aabaa";
+        int[] time3 = {1,2,3,4,1};
+
+        System.out.println( minCost(example1, time1) );
+        System.out.println( minCost(example2, time2) );
+        System.out.println( minCost(example3, time3) );
     }
 
-    public int minCost(String colors, int[] neededTime) {
+    public static int minCost(String colors, int[] neededTime) {
         
         //Values of colors next to each other would be added to this priorityQueue
         PriorityQueue<Integer> values = new PriorityQueue<>();
