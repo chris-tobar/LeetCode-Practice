@@ -1,7 +1,5 @@
 package medium.October;
 
-import java.util.PriorityQueue;
-
 /*
  * Alice has n balloons arranged on a rope. You are given a 0-indexed string 
  * colors where colors[i] is the color of the ith balloon.
