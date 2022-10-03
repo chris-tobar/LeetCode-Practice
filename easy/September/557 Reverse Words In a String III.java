@@ -1,4 +1,4 @@
-package easy;
+package easy.September;
 
 /*
  * Given a string s, reverse the order of characters 
