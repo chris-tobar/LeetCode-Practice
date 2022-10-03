@@ -19,12 +19,15 @@ class problem1578{
     
     public static void main(String[] args) {
         
+        //Solution: 3
         String example1 = "abaac";
         int[] time1 = {1,2,3,4,5};
 
+        //Solution: 0
         String example2 = "abc";
         int[] time2 = {1,2,3};
 
+        //Solution: 2
         String example3 = "aabaa";
         int[] time3 = {1,2,3,4,1};
 
@@ -74,7 +77,7 @@ class problem1578{
     /*
      * Helper function to help find the substring length
      */
-    public int subStringLength(String colors,int beginning)
+    public static int subStringLength(String colors,int beginning)
     {
         int end = beginning;
         
