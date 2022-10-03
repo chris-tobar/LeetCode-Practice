@@ -38,52 +38,25 @@ class problem1578{
 
     public static int minCost(String colors, int[] neededTime) {
         
-        //Values of colors next to each other would be added to this priorityQueue
-        PriorityQueue<Integer> values = new PriorityQueue<>();
-        //Keeps track of the total cost of removing ballons
-        int cost = 0;
-
-        //Keeps track of substring length
-        int sub = 0;
+        int sol = 0;
+        int sum = 0;
+        int max = 0;
         
-        //Iterate through the string length-1
-        for(int i=0; i<colors.length()-1; i++)
+        for(int i=0; i<colors.length(); i++)
         {
-            //Letter found next to each other are duplicates
-            if(Character.compare( colors.charAt(i), colors.charAt(i+1))==0  )
+            if(i>0 && colors.charAt(i) != colors.charAt(i-1))
             {
-                //Get the substring of duplicated colors
-                sub = subStringLength(colors,i);
-                
-                //Iterate through adding them to the priorityQueue
-                for(int j=i; j<sub; j++)
-                    values.add( neededTime[j] );
-                
-                //Pop the values found
-                while(values.size() > 2)
-                    cost += values.poll();
-                
-                //Clear the priorityQueue so it doesn't bleed into next substring found
-                values.clear();
-                //Make the iteration begin at end of substring found
-                i=sub;
+                sol += sum - max;
+                sum = 0;
+                max = 0;
             }
+            
+            sum += neededTime[i];
+            max = Math.max(max, neededTime[i]);
         }
         
-        //Return found cost
-        return cost;
-    }
-    
-    /*
-     * Helper function to help find the substring length
-     */
-    public static int subStringLength(String colors,int beginning)
-    {
-        int end = beginning;
+        sol += sum - max;
         
-        for(int i=beginning; colors.charAt(i)==colors.charAt(beginning) && i<colors.length()-1; i++)
-            end++;
-        
-        return end;
+        return sol;
     }
 }
