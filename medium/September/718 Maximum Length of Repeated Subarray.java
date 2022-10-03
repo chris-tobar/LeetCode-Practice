@@ -1,4 +1,4 @@
-package medium;
+package medium.September;
 
 /*
  * Given two integer arrays nums1 and nums2, 

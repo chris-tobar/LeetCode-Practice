@@ -1,4 +1,4 @@
-package medium;
+package medium.September;
 
 /*
  * You are given an array of strings equations that represent relationships 

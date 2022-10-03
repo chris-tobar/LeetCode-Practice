@@ -1,4 +1,4 @@
-package medium;
+package medium.September;
 
 /*
  * There are n dominoes in a line, and we place each domino vertically upright.

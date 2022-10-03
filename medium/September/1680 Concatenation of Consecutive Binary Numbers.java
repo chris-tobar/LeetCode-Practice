@@ -1,4 +1,4 @@
-package medium;
+package medium.September;
 
 /*
  * Given an integer n, return the decimal value of 
