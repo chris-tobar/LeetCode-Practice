@@ -44,23 +44,28 @@ class problem981{
 
     public static class TimeMap {
 
+        //HashMap to store multiple values 
         HashMap<String, TreeMap<Integer,String> > map;
         
+        //Initializes the hashmap
         public TimeMap() {
             map = new HashMap<>();
         }
         
         public void set(String key, String value, int timestamp) {
             
+            //The key doesn't exist, so we will create a new value pairing inside
             if( !map.containsKey(key) )
             {
                 TreeMap<Integer,String> temp = new TreeMap<>();
+                //Store the int value along with its string value
                 temp.put(timestamp, value);
                 
                 map.put(key, temp);
             }
             else
             {
+                //Same steps as above, but the mapping already exists
                 TreeMap<Integer,String> temp = map.get(key);
                 temp.put(timestamp,value);
             }
@@ -68,16 +73,20 @@ class problem981{
         
         public String get(String key, int timestamp) {
             
+            //No key exists so we return ""
             if(!map.containsKey(key))
                 return "";
             
             TreeMap<Integer,String> temp = map.get(key);
             
+            //There are no key values inside treemap, so we will return ""
             if( temp.floorKey(timestamp) == null)
                 return "";
             
+            //Finds the exact number, or the number that is the largest found, but also smaller than value looking for
             Integer floorKey = temp.floorKey(timestamp);
             
+            //Return that value that we are searching for
             return temp.get(floorKey);
         }
     }
