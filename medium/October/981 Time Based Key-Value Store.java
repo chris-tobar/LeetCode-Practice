@@ -56,19 +56,10 @@ class problem981{
             
             //The key doesn't exist, so we will create a new value pairing inside
             if( !map.containsKey(key) )
-            {
-                TreeMap<Integer,String> temp = new TreeMap<>();
-                //Store the int value along with its string value
-                temp.put(timestamp, value);
-                
-                map.put(key, temp);
-            }
-            else
-            {
-                //Same steps as above, but the mapping already exists
-                TreeMap<Integer,String> temp = map.get(key);
-                temp.put(timestamp,value);
-            }
+                map.put(key, new TreeMap<>());
+
+            //Get the treemap associated with it, and then put the value into it
+            map.get(key).put(timestamp,value);
         }
         
         public String get(String key, int timestamp) {
