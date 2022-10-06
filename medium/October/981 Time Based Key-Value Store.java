@@ -7,7 +7,26 @@ class problem981{
 
     public static void main(String[] args) {
         
-        TimeMap timeMap = new TimeMap();
+        TimeMap timeMap1 = new TimeMap();
+
+        // store the key "foo" and value "bar" along with timestamp = 1.
+        timeMap1.set("foo", "bar", 1);  
+
+        // return "bar", since there is no value corresponding to foo at timestamp 3 and timestamp 2, then the only value is at timestamp 1 is "bar"
+        System.out.println( timeMap1.get("foo", 3) ); 
+
+        // store the key "foo" and value "bar2" along with timestamp = 4.
+        timeMap1.set("foo", "bar2", 4); 
+
+        //Returns "bar2"
+        System.out.println(timeMap1.get("foo", 4) );  
+        
+        // return "bar2"
+        System.out.println(timeMap1.get("foo", 5) );
+
+        // return "bar"
+        System.out.println(timeMap1.get("foo", 1) );        
+
     }
 
     public static class TimeMap {
