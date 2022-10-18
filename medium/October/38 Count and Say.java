@@ -1,7 +1,5 @@
 package medium.October;
 
-import java.util.LinkedHashMap;
-
 class problem38{
     
     public static void main(String[] args) {
@@ -10,28 +8,36 @@ class problem38{
 
     public static String countAndSay(int n) {
         
-        return "";
+        String baseCase = "1";
+        for(int i=1; i<n; i++)
+            baseCase = countNumbers(baseCase);
+        
+        return baseCase;
     }
     
-    public static LinkedHashMap<Integer,Integer> mapPairings(String number)
-    {
-        LinkedHashMap<Integer,Integer> map = new LinkedHashMap<>();
+    public static String countNumbers(String s){
         
-        for(int i=0; i<number.length(); i++)
-        {
-            int num = number.charAt(i) - '0';
-            map.put(num, map.getOrDefault(num,0) + 1);
-        }
-        
-        return map;
-    }
-    
-    public static String pairConversion(LinkedHashMap<Integer,Integer> map)
-    {
         StringBuilder sb = new StringBuilder();
         
+        char num = s.charAt(0);
         
+        int count = 1;
         
+        for(int i=1; i<s.length(); i++)
+        {
+            if(s.charAt(i) == num)
+                count++;
+            else
+            {
+                sb.append(count);
+                sb.append(num);
+                num = s.charAt(i);
+                count = 1;
+            }
+        }
+        
+        sb.append(count);
+        sb.append(num);
         return sb.toString();
     }
 }
