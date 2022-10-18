@@ -23,6 +23,18 @@ class problem38{
     
     public static void main(String[] args) {
         
+        //Solution: 1
+        int example1 = 1;
+
+        //Solution: 1211
+        int example2 = 4;
+
+        //Solution: 3113112221232112111312211312113211
+        int example3 = 12;
+
+        System.out.println( countAndSay(example1));
+        System.out.println( countAndSay(example2));
+        System.out.println( countAndSay(example3));
     }
 
     public static String countAndSay(int n) {
