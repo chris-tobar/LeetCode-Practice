@@ -15,10 +15,13 @@ class problem692{
         HashMap<String,Integer> freq = new HashMap<>();
         List<String> sol = new ArrayList<>();
         
+        //Hashmap that stores the frequency of the words found
         for(String word: words)
             freq.put(word, freq.getOrDefault(word,0) + 1);
         
         
+        //Missing logic for sorting through hashmap values in order, to be able
+        //to loop through k values and achieve solution needed
         
         //For loop to iterate through k strings to get our solution
         for(int i=0; i<k; i++)
@@ -26,8 +29,7 @@ class problem692{
             
         }
         
-        
-        
+        //Return the solution
         return sol;
     }
 }
