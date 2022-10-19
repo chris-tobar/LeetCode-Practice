@@ -14,6 +14,14 @@ class problem692{
     
     public static void main(String[] args) {
         
+        //Solution: {i, love}
+        String[] example1 = {"i","love","leetcode","i","love","coding"};
+
+        //Solution: {the, is, sunny, day}
+        String[] example2 = {"the","day","is","sunny","the","the","the","sunny","is","is"};
+
+        System.out.println( topKFrequent(example1, 2));
+        System.out.println( topKFrequent(example2, 4));
     }
 
     public static List<String> topKFrequent(String[] words, int k) {
