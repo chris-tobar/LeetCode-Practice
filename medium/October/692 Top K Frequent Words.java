@@ -4,6 +4,12 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.ArrayList;
 
+/*
+ * Given an array of strings words and an integer k, return the k most frequent strings.
+
+    Return the answer sorted by the frequency from highest to lowest. 
+    Sort the words with the same frequency by their lexicographical order.
+ */
 class problem692{
     
     public static void main(String[] args) {
