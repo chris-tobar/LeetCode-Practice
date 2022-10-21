@@ -11,6 +11,18 @@ class problem219{
     
     public static void main(String[] args) {
         
+        //Solution: True
+        int[] example1 = {1,2,3,1};
+
+        //Solution: True
+        int[] example2 = {1,0,1,1};
+
+        //Solution: False
+        int[] example3 = {1,2,3,1,2,3};
+
+        System.out.println( containsNearbyDuplicate(example1, 3));
+        System.out.println( containsNearbyDuplicate(example2, 1));
+        System.out.println( containsNearbyDuplicate(example3, 2));
     }
 
     public static boolean containsNearbyDuplicate(int[] nums, int k) {
