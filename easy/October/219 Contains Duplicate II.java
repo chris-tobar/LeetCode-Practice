@@ -54,13 +54,9 @@ class problem219{
             }
             
             //Window size fits, and a duplicate number has been found
-            if(dups.contains(nums[right]))
+            if(!dups.add( nums[right++]))
                 return true;
                 
-            //Add the right pointer to the set, before enlarging size of window
-            dups.add( nums[right] );
-            right++;
-            
         }
         
         //Duplicate number was never found in the size of window requested
