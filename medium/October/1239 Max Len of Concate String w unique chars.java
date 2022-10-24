@@ -18,8 +18,13 @@ class problem1239{
     
     public static void main(String[] args) {
         
+        //Solution: 4
         ArrayList<String> example1 = new ArrayList<>( Arrays.asList("un","iq","ue"));
+
+        //Solution: 6
         ArrayList<String> example2 = new ArrayList<>( Arrays.asList("cha","r","act","ers"));
+
+        //Solution: 26
         ArrayList<String> example3 = new ArrayList<>( Arrays.asList("abcdefghijklmnopqrstuvwxyz"));
 
         System.out.println( maxLength(example1) );
