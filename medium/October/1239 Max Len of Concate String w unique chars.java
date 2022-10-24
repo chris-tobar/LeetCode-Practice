@@ -2,6 +2,7 @@ package medium.October;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
  * You are given an array of strings arr.
@@ -17,6 +18,13 @@ class problem1239{
     
     public static void main(String[] args) {
         
+        ArrayList<String> example1 = new ArrayList<>( Arrays.asList("un","iq","ue"));
+        ArrayList<String> example2 = new ArrayList<>( Arrays.asList("cha","r","act","ers"));
+        ArrayList<String> example3 = new ArrayList<>( Arrays.asList("abcdefghijklmnopqrstuvwxyz"));
+
+        System.out.println( maxLength(example1) );
+        System.out.println( maxLength(example2) );
+        System.out.println( maxLength(example3) );
     }
 
     public static int maxLength(List<String> arr) {
