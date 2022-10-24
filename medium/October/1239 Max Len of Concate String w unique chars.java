@@ -1,8 +1,7 @@
 package medium.October;
 
 import java.util.List;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
 
 class problem1239{
     
@@ -11,51 +10,35 @@ class problem1239{
     }
 
     public static int maxLength(List<String> arr) {
+
+        List<Integer> dp = new ArrayList<>();
+        dp.add(0);
+        int res = 0;
         
-        int max = 0;
-        
-        for(int i=0; i<arr.size(); i++)
-        {
-            HashSet<Character> dups = new HashSet<>();
-            StringBuilder word = new StringBuilder(arr.get(i));
+        for (String word: arr) {
             
-            if(addToSet( word.toString() , dups) )
-                max = Math.max(max, word.length() );
+            int a = 0;
+            int dup = 0;
             
-            for(int j=i+1; j<arr.size(); j++)
+            for (char wordChars : word.toCharArray()) 
             {
-                if(unique(arr.get(j), dups))
-                {
-                    addToSet(arr.get(j),dups);
-                    word.append(arr.get(j));
-                    max = Math.max(max, word.length());
-                }
+                dup |= a & (1 << (wordChars - 'a'));
+                a |= 1 << (wordChars - 'a');
             }
             
+            if (dup > 0) 
+                continue;
+            
+            for (int i = dp.size() - 1; i >= 0; --i) 
+            {
+                if ((dp.get(i) & a) > 0) 
+                    continue;
+                dp.add(dp.get(i) | a);
+                
+                res = Math.max(res, Integer.bitCount(dp.get(i) | a));
+            }
         }
-        
-        return max;
+        return res;
     }
-    
-    public static boolean addToSet(String word, Set<Character> dups)
-    {
-        for(int i=0; i<word.length(); i++)
-        {
-            if(!dups.add( word.charAt(i)))
-                return false;
-        }
-        
-        return true;
-    }
-    
-    public static boolean unique(String word, Set<Character> dups)
-    {
-        for(int i=0; i<word.length(); i++)
-        {
-            if(dups.contains(word.charAt(i)))
-                return false;
-        }
-        
-        return true;
-    }
+
 }
