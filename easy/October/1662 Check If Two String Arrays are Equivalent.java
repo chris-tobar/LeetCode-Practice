@@ -30,6 +30,17 @@ class problem1662{
 
     }
 
+    /*
+     * IMPORTANT NOTE:
+     * 
+     * the solution below can be improved in terms of space by using 4 pointers.
+     * 2 pointers to iterate through the arrays, and 2 other pointers to iterate through the 
+     * characters
+     * 
+     * We can early exit if we notice a difference in characters not matching immediately
+     * 
+     * If we are able to iterate throughout the array, then return true
+     */
     public static boolean arrayStringsAreEqual(String[] word1, String[] word2) {
         
         //StringBuilder that will store the strings in word1
