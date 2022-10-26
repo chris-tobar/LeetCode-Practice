@@ -8,6 +8,7 @@ class problem523{
 
     public static boolean checkSubarraySum(int[] nums, int k) {
         
+        //Iterate through the array and find all possible combinations to see if they add up
         for(int i=0; i<nums.length - 1; i++)
         {
             int sum = nums[i];
@@ -16,11 +17,13 @@ class problem523{
             {
                 sum += nums[j];
                 
+                //Number equals a multiple of the sum
                 if(sum%k == 0)
                     return true;
             }
         }
         
+        //Iterated throughout the array and no solution was found
         return false;
     }
 }
