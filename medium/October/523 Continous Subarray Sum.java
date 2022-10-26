@@ -1,5 +1,6 @@
 package medium.October;
 
+import java.util.HashMap;
 /*
  * Given an integer array nums and an integer k, return true if nums has 
  * a continuous subarray of size at least two whose elements sum up to a 
@@ -29,22 +30,29 @@ class problem523{
 
     public static boolean checkSubarraySum(int[] nums, int k) {
         
-        //Iterate through the array and find all possible combinations to see if they add up
-        for(int i=0; i<nums.length - 1; i++)
+        HashMap<Integer,Integer> map = new HashMap<>();
+        map.put(0,-1);
+        
+        int runningSum = 0;
+        
+        for(int i=0; i<nums.length; i++)
         {
-            int sum = nums[i];
+            runningSum += nums[i];
             
-            for(int j=i+1; j<nums.length; j++)
+            if(k!=0)
+                runningSum %= k;
+            
+            Integer prev = map.get(runningSum);
+            
+            if(prev != null)
             {
-                sum += nums[j];
-                
-                //Number equals a multiple of the sum
-                if(sum%k == 0)
+                if(i - prev > 1)
                     return true;
             }
+            else
+                map.put(runningSum, i);
         }
         
-        //Iterated throughout the array and no solution was found
         return false;
     }
 }
