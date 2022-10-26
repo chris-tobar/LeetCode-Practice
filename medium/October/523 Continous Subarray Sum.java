@@ -4,6 +4,19 @@ class problem523{
     
     public static void main(String[] args) {
         
+        int[] example1 = {23,2,4,6,7};
+        int[] example2 = {23,2,6,4,7};
+
+        System.out.printf("\nExample 1: %b\n", checkSubarraySum(example1, 6));
+        System.out.println("Solution: true\n");
+
+
+        System.out.printf("Example 2: %b\n", checkSubarraySum(example2, 6));
+        System.out.println("Solution: true\n");
+
+        System.out.printf( "Example 3: %b\n",checkSubarraySum(example2, 13));
+        System.out.println("Solution: false\n");
+            
     }
 
     public static boolean checkSubarraySum(int[] nums, int k) {
