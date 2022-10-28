@@ -3,6 +3,29 @@ package medium.October;
 class problem835{
     
     public static void main(String[] args) {
+
+        //Solution: 3
+        int[][] example1A = {{1,1,0},{0,1,0},{0,1,0}};
+        int[][] example1B = {{0,0,0},{0,1,1},{0,0,1}};
+
+        //Solution: 1
+        int[][] example2A = {{1}};
+        int[][] example2B = {{1}};
+
+        //Solution: 0
+        int[][] example3A = {{0}};
+        int[][] example3B = {{0}};
+
+
+        System.out.printf("\nExample 1: %d\n",largestOverlap(example1A, example1B));
+        System.out.println("Solution: 3\n");
+
+        System.out.printf("Example 2: %d\n",largestOverlap(example2A, example2B));
+        System.out.println("Solution: 1\n");
+
+        System.out.printf("Example 3: %d\n",largestOverlap(example3A, example3B));
+        System.out.println("Solution: 0\n");
+
         
     }
 
