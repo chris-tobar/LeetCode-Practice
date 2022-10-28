@@ -9,6 +9,18 @@ class problem49{
     
     public static void main(String[] args) {
         
+        String[] example1 = {"eat","tea","tan","ate","nat","bat"};
+        String[] example2 = {""};
+        String[] example3 = {"a"};
+
+        System.out.println("\nExample 1: " + groupAnagrams(example1));
+        System.out.println("Solution: [[bat],[nat,tan],[ate,eat,tea]]\n");
+
+        System.out.println("Example 2: " + groupAnagrams(example2));
+        System.out.println("Solution: [[\"\"]]\n");
+
+        System.out.println("Example 3: " + groupAnagrams(example3));
+        System.out.println("Solution: [[a]]");
     }
 
     public static List<List<String>> groupAnagrams(String[] strs) {
