@@ -4,7 +4,21 @@ class problem766{
     
     public static void main(String[] args) {
         
-        System.out.println("Hello world!");
+        //Solution: true
+        int[][] example1 = {{1,2,3,4},
+                            {5,1,2,3},
+                            {9,5,1,2}};
+
+        //Solution: false
+        int[][] example2 = {{1,2},
+                            {2,2}};
+
+
+        System.out.printf("%nExample 1: %b %n", isToeplitzMatrix(example1));
+        System.out.println("Solution: true \n");
+
+        System.out.printf("Example 2: %b %n", isToeplitzMatrix(example2));
+        System.out.println("Solution: false \n");
     }
 
     public static boolean isToeplitzMatrix(int[][] matrix) {
