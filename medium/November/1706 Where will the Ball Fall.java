@@ -43,31 +43,41 @@ class problem1706{
 
     public static int[] findBall(int[][] grid) {
         
-        
+        //Variable to keep track of row Length and col Lengh
         int rowLen = grid.length;
         int colLen = grid[0].length;
+        //Keep track of where the balls land
         int[] res = new int[colLen];
         
+        //Iterate through all the COLUMN length
         for (int i = 0; i < colLen; i++) 
         {
+            //leftSpace is where the ball currently is
             int leftSpace = i;
+            //rightSpace is where the ball wants to head to
             int rightSpace = 0;
             
+            //Iterate throughout the ROWS
             for (int j = 0; j < rowLen; j++) 
             {
+                //Calculate what column the ball will land in 
                 rightSpace = leftSpace + grid[j][leftSpace];
                 
+                //Ball is stuck against the wall on both sides OR it has been stuck on a V bend
                 if (rightSpace < 0 || rightSpace >= colLen || 
                     grid[j][rightSpace] != grid[j][leftSpace]) 
                 {
+                    //leftSpace is -1 since it never exits the box, and exit out of the loop
                     leftSpace = -1;
                     break;
                 }
                 leftSpace = rightSpace;
             }
             
+            //Assign that index where the ball ended up
             res[i] = leftSpace;
         }
+        //Return the solution
         return res;
     }
 }
