@@ -4,6 +4,19 @@ class problem1706{
     
     public static void main(String[] args) {
         
+        int[][] example1 = {{1,1,1,-1,-1},{1,1,1,-1,-1},{-1,-1,-1,1,1},{1,1,1,1,-1},{-1,-1,-1,-1,-1}};
+        int[][] example2 = {{-1}};
+        int[][] example3 = {{1,1,1,1,1,1},{-1,-1,-1,-1,-1,-1},{1,1,1,1,1,1},{-1,-1,-1,-1,-1,-1}};
+
+        System.out.printf("Example 1: %s\n", findBall(example1).toString() );
+        System.out.println("Solution: [1,-1,-1,-1,-1]\n");
+
+        System.out.printf("Example 2: %s\n", findBall(example2).toString() );
+        System.out.println("Solution: [-1] \n");
+
+        System.out.printf("Example 3: %s\n", findBall(example3).toString());
+        System.out.println("Solution: [0,1,2,3,4,-1]\n");
+        
     }
 
     public static int[] findBall(int[][] grid) {
