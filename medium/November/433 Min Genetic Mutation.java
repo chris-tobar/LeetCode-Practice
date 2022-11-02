@@ -5,6 +5,24 @@ class problem433{
     
     public static void main(String[] args) {
         
+        //SOLUTION: 1
+        String[] example1 = {"AACCGGTA"};
+
+        //SOLUTION: 2
+        String[] example2 = {"AACCGGTA","AACCGCTA","AAACGGTA"};
+
+        //SOLUTION: 3
+        String[] example3 = {"AAAACCCC","AAACCCCC","AACCCCCC"};
+
+
+        System.out.printf("\nExample 1: %d\n", minMutation("AACCGGTT", "AACCGGTA", example1));
+        System.out.println("Solution: 1\n");
+
+        System.out.printf("Example 2: %d\n", minMutation("AACCGGTT", "AAACGGTA", example2));
+        System.out.println("Solution: 2\n");
+
+        System.out.printf("Example 3: %d\n", minMutation("AAAAACCC", "AACCCCCC", example3));
+        System.out.println("Solution: 3");
     }
 
     public static int minMutation(String start, String end, String[] bank) {
