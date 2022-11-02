@@ -72,6 +72,8 @@ class problem433{
             {
                 if(start.equals(end))
                     break;
+                if(charsToChange(start,end) == 1)
+                    return charCount;
                 
                 //SKip over index since we mutated through it
                 if(indexToSkip.contains(j))
