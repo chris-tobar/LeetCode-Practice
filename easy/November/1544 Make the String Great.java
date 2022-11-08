@@ -1,5 +1,7 @@
 package easy.November;
 
+import java.util.Stack;
+
 /*
  * Given a string s of lower and upper case English letters.
 
@@ -41,44 +43,25 @@ class problem1544{
 
     public static String makeGood(String s) {
         
-        //Base case
-        if(s.length() == 1)
-            return s;
+        Stack<Character> stack = new Stack<>();
         
-        //StringBuilder to store the string, since we are going to be appending characters
-        StringBuilder sb = new StringBuilder();
-        
-        //Iterate through the string
-        for(int i=0; i<s.length()-1; i++)
+        for(int i=0; i<s.length(); i++)
         {
-            //Store the letters and lower case them to compare and see if they are the same
-            Character letter = Character.toLowerCase( s.charAt(i) ) ;
-            Character letterAhead = Character.toLowerCase( s.charAt(i+1) );
-            
-            //Letters are the same, we will now check to see if we should append them or delete them
-            if( letter.equals(letterAhead) )
-            {
-                Character temp = s.charAt(i);
-                Character temp2 = s.charAt(i+1);
-                
-                //One letter is upper and the other is lower, so we will delete both characters
-                if( !temp.equals(temp2) )
-                    i++;
-                //They were both upper case or lower case, so we will append that character
-                else
-                    sb.append( s.charAt(i));
-            }
-            //Letters were not the same, so we will append current letter
+            if(!stack.isEmpty() && Math.abs( stack.peek()-s.charAt(i)) == 32)
+                stack.pop();
             else
-                sb.append( s.charAt(i));
-            
+                stack.push(s.charAt(i));
         }
         
-        //Catches some base cases that ending letter is not included
-        //Solution needs to be reworked because of this bottom logic
-        sb.append(s.charAt( s.length() -1 ) );
+        char[] solution = new char[stack.size()];
         
-        //Return the good string
-        return sb.toString();
+        int index = stack.size() - 1;
+        
+        while(!stack.isEmpty())
+        {
+            solution[index--] = stack.pop();
+        }
+        
+        return new String(solution);
     }
 }
