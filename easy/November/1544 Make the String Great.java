@@ -41,33 +41,44 @@ class problem1544{
 
     public static String makeGood(String s) {
         
+        //Base case
         if(s.length() == 1)
             return s;
         
+        //StringBuilder to store the string, since we are going to be appending characters
         StringBuilder sb = new StringBuilder();
         
+        //Iterate through the string
         for(int i=0; i<s.length()-1; i++)
         {
+            //Store the letters and lower case them to compare and see if they are the same
             Character letter = Character.toLowerCase( s.charAt(i) ) ;
             Character letterAhead = Character.toLowerCase( s.charAt(i+1) );
             
+            //Letters are the same, we will now check to see if we should append them or delete them
             if( letter.equals(letterAhead) )
             {
                 Character temp = s.charAt(i);
                 Character temp2 = s.charAt(i+1);
                 
+                //One letter is upper and the other is lower, so we will delete both characters
                 if( !temp.equals(temp2) )
                     i++;
+                //They were both upper case or lower case, so we will append that character
                 else
                     sb.append( s.charAt(i));
             }
+            //Letters were not the same, so we will append current letter
             else
                 sb.append( s.charAt(i));
             
         }
         
+        //Catches some base cases that ending letter is not included
+        //Solution needs to be reworked because of this bottom logic
         sb.append(s.charAt( s.length() -1 ) );
         
+        //Return the good string
         return sb.toString();
     }
 }
