@@ -4,7 +4,23 @@ class problem1544{
 
     public static void main(String[] args)
     {
+        //SOLUTION: "leetcode"
+        String example1 = "leEeetcode";
 
+        //SOLUTION: ""
+        String example2 = "abBAcC";
+
+        //SOLUTION: "s"
+        String example3 = "s";
+
+        System.out.printf("Example 1: \"%s\" %n", makeGood(example1));
+        System.out.println("Solution: \"leetcode\" \n");
+
+        System.out.printf("Example 2: \"%s\" %n", makeGood(example2));
+        System.out.println("Solution: \"\" \n");
+
+        System.out.printf("Example 3: \"%s\" %n", makeGood(example3));
+        System.out.println("Solution: \"s\"\n");
     }
 
     public static String makeGood(String s) {
