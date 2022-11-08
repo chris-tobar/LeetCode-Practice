@@ -43,25 +43,34 @@ class problem1544{
 
     public static String makeGood(String s) {
         
+        //Stack that will hold all characters that pass the check
         Stack<Character> stack = new Stack<>();
         
+        //Iterate through the string size
         for(int i=0; i<s.length(); i++)
         {
+            //If the character is upper/lower or lower/upper, the difference between them in ASCII
+            //Will be 32, hence this check
             if(!stack.isEmpty() && Math.abs( stack.peek()-s.charAt(i)) == 32)
                 stack.pop();
+            //Characters are not the same, so we push it to the stack
             else
                 stack.push(s.charAt(i));
         }
         
+        //Character array that will now take the characters inside the stack
         char[] solution = new char[stack.size()];
         
+        //Initalize index at stack size-1, since characters are stored in reverse
         int index = stack.size() - 1;
         
+        //Loop through the stack, pushing the characters into the array
         while(!stack.isEmpty())
         {
             solution[index--] = stack.pop();
         }
         
+        //Return the new string
         return new String(solution);
     }
 }
