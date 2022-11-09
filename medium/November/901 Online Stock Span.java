@@ -9,48 +9,23 @@ class problem901{
         StockSpanner example1 = new StockSpanner();
     }
 
-    public static class StockSpanner {
+    static class StockSpanner {
 
-        Stack<Integer> stack;
-        int prevMax;
-        int prevNumber;
+        Stack<int[]> stack;
         
         public StockSpanner() {
             this.stack = new Stack<>();
-            this.prevMax = 1;
-            this.prevNumber = 1;
         }
         
         public int next(int price) {
             
-            if(stack.isEmpty())
-            {
-                stack.push(price);
-                return 1;
-            }
-            else if( price < stack.peek() )
-            {
-                stack.push(price);
-                this.prevMax = 1;
-                this.prevNumber = price;
-                return 1;
-            }
-            else
-                stack.push(price);
+            int count = 1;
             
-            Stack<Integer> temp = (Stack<Integer>)stack.clone();
-            int max = 0;
+            while(!stack.isEmpty() && stack.peek()[0] <= price)
+                count += stack.pop()[1];
             
-            while(!temp.isEmpty())
-            {
-                if( temp.pop() <= price)
-                    max++;
-                else
-                    return max;
-            }
-            
-            
-            return max;
+            stack.push( new int[] {price, count} );
+            return count;
         }
     }
 }
