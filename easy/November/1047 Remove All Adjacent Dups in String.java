@@ -6,7 +6,17 @@ class problem1047{
     
     public static void main(String[] args)
     {
+        //SOLUTION: "ca"
+        String example1 = "abbaca";
 
+        //SOLUTION: "ay"
+        String example2 = "azxxzy";
+
+        System.out.printf("Example 1: \"%s\" %n", removeDuplicates(example1) );
+        System.out.println("Solution: \"ca\" \n");
+
+        System.out.printf("Example 2: \"%s\" %n", removeDuplicates(example2) );
+        System.out.println("Solution: \"ay\" \n");
     }
 
     public static String removeDuplicates(String s) {
